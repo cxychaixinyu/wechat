@@ -191,7 +191,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //考试
 Route::get('exam/login','ExamController@login');
 Route::get('exam/dologin','ExamController@dologin');
-Route::prefix('exam')->middleware('checklogin')->group(function(){
+Route::prefix('exam')->group(function(){
 	Route::get('add','ExamController@add');
 	Route::post('doadd','ExamController@doadd');
 	Route::get('list','ExamController@list');
@@ -232,4 +232,8 @@ Route::prefix('wx')->middleware('checklogin')->group(function (){
 Route::prefix('menu')->group(function (){
    Route::get('list','MenuController@list');
    Route::get('add','MenuController@add');
+});
+
+Route::prefix('event')->group(function (){
+    Route::get('event','EventController@event');
 });
