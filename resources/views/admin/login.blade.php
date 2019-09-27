@@ -11,21 +11,40 @@
 			</div>
 			<div class="login">
 				<div class="row">
-					<form class="col s12">
+					<form class="col s12" id="form">
 						<div class="input-field">
-							<input type="text" class="validate" placeholder="用户名" required>
+							<input type="text" name="user_name" class="validate" placeholder="用户名" required>
 						</div>
 						<div class="input-field">
-							<input type="password" class="validate" placeholder="密码" required>
+							<input type="password" name="user_pwd" class="validate" placeholder="密码" required>
 						</div>
 						<a href=""><h6>忘记密码 ?</h6></a>
-						<a href="{{url::asset('login/do_login')}}" class="btn button-default">登陆</a>
-						<a href="{{url::asset('login/register')}}" class="btn button-default">去注册</a>
+						<a href="{{url('admin/do_login')}}" class="btn button-default formDemo">登陆</a>
+						<a href="{{url('admin/register')}}" class="btn button-default">去注册</a>
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- end login -->
+@endsection
+
+@section('script')
+<script>
+	$(function(){
+		$('.formDemo').click(function(){
+			var data = $('#form').serialize();
+
+			$.post(
+				"{url('do_login')}",
+				data,
+				function(res){
+					console.log(res);
+				}
+			);
+			return false;
+		});
+	});
+</script>
 @endsection
 

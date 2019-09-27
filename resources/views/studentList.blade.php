@@ -9,11 +9,13 @@
 	<center>
 		<h1>学生列表</h1>
 		<h2><a href="{{url('student/add')}}">去添加学生</a></h2>
+
 		<form action="{{url('student/index')}}" method="get">
 			
 			姓名：<input type="text" name="search" value="{{$search}}">
 			<input type="submit" name="" value="搜索">
 		</form>
+		
 		<table width="600" border="1">
 			<tr align="center">
 				<td width="50">ID</td>

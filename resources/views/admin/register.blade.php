@@ -3,7 +3,7 @@
 @section('title','用户注册')
 
 @section('body')
-	<!-- register -->
+<!-- register -->
 	<div class="pages section">
 		<div class="container">
 			<div class="pages-head">
@@ -11,21 +11,49 @@
 			</div>
 			<div class="register">
 				<div class="row">
-					<form class="col s12">
+					<form class="col s12" id="form">
+						@csrf
 						<div class="input-field">
-							<input type="text" class="validate" placeholder="NAME" required>
+							<input type="text" name="user_name" class="validate" placeholder="NAME" required>
 						</div>
 						<div class="input-field">
-							<input type="email" placeholder="EMAIL" class="validate" required>
+							<input type="email" name="user_email" placeholder="EMAIL" class="validate" required>
 						</div>
 						<div class="input-field">
-							<input type="password" placeholder="PASSWORD" class="validate" required>
+							<input type="password" name="user_pwd" placeholder="PASSWORD" class="validate" required>
 						</div>
-						<div class="btn button-default">注册</div>
+						<div class="btn button-default formDemo">注册</div>
 					</form>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- end register -->
+<!-- end register -->
+@endsection
+
+@section('script')
+<script>
+	layui.use('layer',function(){
+		var layer = layui.layer;
+	});
+	$(function(){
+		$('.formDemo').click(function(){
+			var data = $('#form').serialize();
+			
+			$.post(
+				"{{url('admin/do_register')}}",
+				data,
+				function(res){
+					layer.msg(res.font,{icon:res.code,time:2000},function(){
+						if (res.code==1) {
+							location.href="{{url('admin/login')}}";
+						};
+					});
+				},
+				'json'
+			);
+			return false;
+		});
+	});
+</script>
 @endsection

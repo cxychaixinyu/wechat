@@ -18,6 +18,7 @@
 	<link rel="stylesheet" href="{{asset('css/fakeLoader.css')}}">
 	<link rel="stylesheet" href="{{asset('css/animate.css')}}">
 	<link rel="stylesheet" href="{{asset('css/style.css')}}">
+	<link rel="stylesheet" href="{{asset('layui/css/layui.css')}}">
 	
 	<link rel="shortcut icon" href="img/favicon.png">
 
@@ -402,7 +403,12 @@
 	<script src="{{asset('js/fakeLoader.min.js')}}"></script>
 	<script src="{{asset('js/animatedModal.min.js')}}"></script>
 	<script src="{{asset('js/main.js')}}"></script>
+	<script src="{{asset('layui/layui.js')}}"></script>
 	
+	<!-- script -->
+	@section('script')
+	@show
+	<!-- script -->
 </body>
 </html>
 
