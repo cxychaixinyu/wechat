@@ -240,5 +240,5 @@ Route::prefix('event')->group(function (){
 
 Route::prefix('send')->group(function (){
    Route::get('get_access_token','SendController@get_access_token');
-   Route::get('send','SendCntroller@send');
+   Route::get('send','SendController@send');
 });
