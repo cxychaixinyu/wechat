@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Tools\Tools;
 use DB;
 
-class SendController extends Controller
+class EventController extends Controller
 {
     public $tools;
     public function __construct(Tools $tools)
@@ -14,12 +14,7 @@ class SendController extends Controller
         $this->tools=$tools;
     }
 
-    public function get_access_token()
-    {
-        return $this->tools->get_wechat_access_token();
-    }
-
-    public function send()
+    public function event()
     {
         $xml_string=file_get_contents('php://input');
         $wechat_log_psth=storage_path('logs/wechat'.date('Y-m-d H:i:s').'.log');
