@@ -36,11 +36,11 @@ class EventController extends Controller
                     'time'=>time(),
 
                 ]);
-                $message='您好，'.$user_info['nickname'].'：当前时间时间为'.time().'';
+                $message='您好，'.$user_info['nickname'].'：当前时间时间为'.date('Y-m-d H:i:s',time()).'';
                 $xml_str = '<xml><ToUserName><![CDATA['.$xml_arr['FromUserName'].']]></ToUserName><FromUserName><![CDATA['.$xml_arr['ToUserName'].']]></FromUserName><CreateTime>'.time().'</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA['.$message.']]></Content></xml>';
                 echo $xml_str;
             }else{
-                $message='欢迎回来'.$user_info['nickname'].':当前时间为'.time().'';
+                $message='欢迎回来'.$user_info['nickname'].':当前时间为'.date('Y-m-d H:i:s',time()).'';
                 $xml_str = '<xml><ToUserName><![CDATA['.$xml_arr['FromUserName'].']]></ToUserName><FromUserName><![CDATA['.$xml_arr['ToUserName'].']]></FromUserName><CreateTime>'.time().'</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA['.$message.']]></Content></xml>';
                 echo $xml_str;
             }
