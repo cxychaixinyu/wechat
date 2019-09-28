@@ -237,3 +237,8 @@ Route::prefix('menu')->group(function (){
 Route::prefix('event')->group(function (){
     Route::get('event','EventController@event');
 });
+
+Route::prefix('send')->group(function (){
+   Route::get('get_access_token','SendController@get_access_token');
+   Route::get('send','SendCntroller@send');
+});
