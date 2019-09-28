@@ -30,7 +30,7 @@ class SendController extends Controller
         $xml_arr=(array)$xml_obj;
         \Log::Info(json_encode($xml_arr,JSON_UNESCAPED_UNICODE));
 
-        if ($xml_string['MsgType']=='event' && $xml_string['Event']=='subscribe'){
+        if ($xml_arr['MsgType']=='event' && $xml_arr['Event']=='subscribe'){
             $user_re=file_get_contents('https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$this->tools->get_wechat_access_token().'&openid='.$xml_arr['FromUserName'].'&lang=zh_CN');
             $user_info=json_decode($user_re,1);
             $db_user=DB::table('user_weixin')->where(['openid'=>$xml_arr['FromUserName']])->first();
