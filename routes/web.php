@@ -242,3 +242,9 @@ Route::prefix('send')->group(function (){
    Route::get('get_access_token','SendController@get_access_token');
    Route::get('send','SendController@send');
 });
+
+Route::namespace('hAdmin')->group(function (){
+    Route::get('login','LoginController@login');
+    Route::post('dologin','LoginController@dologin');
+    Route::post('send','LoginController@send');
+});
