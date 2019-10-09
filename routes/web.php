@@ -246,5 +246,5 @@ Route::prefix('send')->group(function (){
 Route::namespace('hAdmin')->group(function (){
     Route::get('login','LoginController@login');
     Route::post('dologin','LoginController@dologin');
-    Route::post('send','LoginController@send');
+    Route::get('send','LoginController@send');
 });
